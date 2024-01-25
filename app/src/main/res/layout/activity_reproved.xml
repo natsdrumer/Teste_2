@@ -8,6 +8,10 @@
     tools:context=".ReprovedActivity"
     android:gravity="center_horizontal">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
 
 
     <TextView

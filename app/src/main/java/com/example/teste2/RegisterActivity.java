@@ -50,7 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String status;
 
                 if (media<10){
-                    status = "Reprovado";
+                    status = "Exame";
                 }else{
                     status = "Aprovado";
                 }

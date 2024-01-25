@@ -4,6 +4,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@color/background"
+    android:layout_marginTop="15dp"
     >
 
     <ImageView
@@ -16,6 +17,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         >
 
         <TextView
@@ -36,20 +38,53 @@
             android:orientation="vertical"
             >
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nota 1:  10"
-                android:textSize="10sp"
-                />
+                android:orientation="horizontal">
 
-            <TextView
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nota_1"
+                    android:textSize="10sp"
+                    />
+
+                <TextView
+                    android:id="@+id/tvNota1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10"
+                    android:textSize="10sp"
+                    android:layout_marginLeft="5dp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nota 1:  10"
-                android:textSize="10sp"
-                android:layout_marginTop="15sp"
-                />
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nota_2"
+                    android:textSize="10sp"
+                    />
+
+                <TextView
+                    android:id="@+id/tvNota2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10"
+                    android:textSize="10sp"
+                    android:layout_marginLeft="5dp"
+                    />
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -60,20 +95,53 @@
                 android:layout_marginLeft="100dp"
                 >
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nota 1:  10"
-                    android:textSize="10sp"
-                    />
+                    android:orientation="horizontal">
 
-                <TextView
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/media"
+                        android:textSize="10sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tvMedia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10"
+                        android:textSize="10sp"
+                        android:layout_marginLeft="5dp"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nota 1:  10"
-                    android:textSize="10sp"
-                    android:layout_marginTop="15sp"
-                    />
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/status"
+                        android:textSize="10sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tvStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10"
+                        android:textSize="10sp"
+                        android:layout_marginLeft="5dp"
+                        />
+
+                </LinearLayout>
 
             </LinearLayout>
 

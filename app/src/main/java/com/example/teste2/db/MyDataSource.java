@@ -68,6 +68,68 @@ public class MyDataSource {
         return dataList;
     }
 
+
+    public ArrayList<Student> getAllReproved() {
+        ArrayList<Student> dataList = new ArrayList<>();
+
+        Cursor cursor = database.query(
+                DbHelper.TABLE_NAME,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+        );
+
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                long id = cursor.getLong(cursor.getColumnIndexOrThrow(DbHelper.COLUMN_ID));
+                String name = cursor.getString(cursor.getColumnIndexOrThrow(DbHelper.COLUMN_NAME));
+                Double nota1 = cursor.getDouble(cursor.getColumnIndexOrThrow(DbHelper.COLUMN_NOTA1));
+                Double nota2 = cursor.getDouble(cursor.getColumnIndexOrThrow(DbHelper.COLUMN_NOTA2));
+                Double media = cursor.getDouble(cursor.getColumnIndexOrThrow(DbHelper.COLUMN_MEDIA));
+                String status = cursor.getString(cursor.getColumnIndexOrThrow(DbHelper.COLUMN_STATUS));
+                Student student = new Student(id, name, nota1, nota2, media, status);
+                dataList.add(student);
+            } while (cursor.moveToNext());
+
+            cursor.close();
+        }
+
+        return dataList;
+    }
+
+    public ArrayList<Student> getAllAproved() {
+        ArrayList<Student> dataList = new ArrayList<>();
+
+        Cursor cursor = database.query(
+                DbHelper.TABLE_NAME,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+        );
+
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                long id = cursor.getLong(cursor.getColumnIndexOrThrow(DbHelper.COLUMN_ID));
+                String name = cursor.getString(cursor.getColumnIndexOrThrow(DbHelper.COLUMN_NAME));
+                Double nota1 = cursor.getDouble(cursor.getColumnIndexOrThrow(DbHelper.COLUMN_NOTA1));
+                Double nota2 = cursor.getDouble(cursor.getColumnIndexOrThrow(DbHelper.COLUMN_NOTA2));
+                Double media = cursor.getDouble(cursor.getColumnIndexOrThrow(DbHelper.COLUMN_MEDIA));
+                String status = cursor.getString(cursor.getColumnIndexOrThrow(DbHelper.COLUMN_STATUS));
+                Student student = new Student(id, name, nota1, nota2, media, status);
+                dataList.add(student);
+            } while (cursor.moveToNext());
+
+            cursor.close();
+        }
+
+        return dataList;
+    }
     public void updateData(long id, String newName, Double newNota1, Double newNota2, Double newMedia, String newStatus) {
         ContentValues values = new ContentValues();
         values.put(DbHelper.COLUMN_NAME, newName);
