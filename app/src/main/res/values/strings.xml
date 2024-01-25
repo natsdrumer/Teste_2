@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Teste 2</string>
+    <string name="student_grades">STUDENT GRADES</string>
+    <string name="aproved">Aproved</string>
+    <string name="reproved">Reproved</string>
+    <string name="register">Register</string>
+    <string name="students">STUDENTS</string>
+    <string name="name">Name</string>
+    <string name="test_1">Test 1</string>
+    <string name="test_2">Test 2</string>
+    <string name="add">ADD</string>
+    <string name="cancel">CANCEL</string>
+    <string name="exam">EXAM</string>
+</resources>

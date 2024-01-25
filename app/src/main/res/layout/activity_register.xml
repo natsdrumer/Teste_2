@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity"
+    android:gravity="center_horizontal"
+    >
+
+
+            <TextView
+                android:id="@+id/titleRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/students"
+                android:textSize="50sp"
+                android:layout_marginTop="45dp"/>
+
+            <ImageView
+                android:id="@+id/imageRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/user"
+                />
+
+            <EditText
+                android:id="@+id/eName"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="@string/name"
+                android:layout_marginTop="50dp"/>
+
+            <EditText
+                android:id="@+id/eNota1"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:hint="@string/test_1"
+                android:layout_marginTop="15dp"/>
+
+            <EditText
+                android:id="@+id/eNota2"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:hint="@string/test_2"
+                android:layout_marginTop="15dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="50dp">
+
+                <Button
+                    android:id="@+id/btnAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add"
+                    android:background="@color/greenbtn"
+                    />
+
+                <Button
+                    android:id="@+id/btnCancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cancel"
+                    android:layout_marginLeft="150dp"
+                    android:background="@color/redbtn"
+                    />
+
+            </LinearLayout>
+
+
+
+
+
+
+</LinearLayout>
