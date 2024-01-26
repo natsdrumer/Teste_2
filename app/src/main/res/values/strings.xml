@@ -15,4 +15,6 @@
     <string name="nota_2">Nota 2:</string>
     <string name="media">Media:</string>
     <string name="status">Status:</string>
+    <string name="remover">Remover</string>
+    <string name="update">Update</string>
 </resources>

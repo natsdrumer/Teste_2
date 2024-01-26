@@ -1,10 +1,14 @@
 package com.example.teste2.db;
 
 // MyDataSource.java
+import static java.security.AccessController.getContext;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.example.teste2.model.Student;
 
@@ -28,13 +32,20 @@ public class MyDataSource {
     }
 
     public void insertData(String name, Double nota1, Double nota2, Double media, String status) {
+
         ContentValues values = new ContentValues();
         values.put(DbHelper.COLUMN_NAME, name);
         values.put(DbHelper.COLUMN_NOTA1, nota1);
-        values.put(DbHelper.COLUMN_NOTA1, nota2);
+        values.put(DbHelper.COLUMN_NOTA2, nota2);
         values.put(DbHelper.COLUMN_MEDIA, media);
         values.put(DbHelper.COLUMN_STATUS, status);
-        database.insert(DbHelper.TABLE_NAME, null, values);
+        Log.d("MyDataSource", "Before Insert: " + name + ", " + nota1 + ", " + nota2 + ", " + media + ", " + status);
+
+        long result = database.insert(DbHelper.TABLE_NAME, null, values);
+
+        Log.d("MyDataSource", "After Insert - Result: " + result);
+
+
     }
 
     public List<Student> getAllData() {
@@ -42,6 +53,7 @@ public class MyDataSource {
 
         Cursor cursor = database.query(
                 DbHelper.TABLE_NAME,
+
                 null,
                 null,
                 null,
@@ -69,66 +81,31 @@ public class MyDataSource {
     }
 
 
-    public ArrayList<Student> getAllReproved() {
-        ArrayList<Student> dataList = new ArrayList<>();
+    public Cursor getAllReproved() {
 
-        Cursor cursor = database.query(
-                DbHelper.TABLE_NAME,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null
-        );
+        String query = "Select * from " + DbHelper.TABLE_NAME+ " where status = 'Exame'";
 
-        if (cursor != null && cursor.moveToFirst()) {
-            do {
-                long id = cursor.getLong(cursor.getColumnIndexOrThrow(DbHelper.COLUMN_ID));
-                String name = cursor.getString(cursor.getColumnIndexOrThrow(DbHelper.COLUMN_NAME));
-                Double nota1 = cursor.getDouble(cursor.getColumnIndexOrThrow(DbHelper.COLUMN_NOTA1));
-                Double nota2 = cursor.getDouble(cursor.getColumnIndexOrThrow(DbHelper.COLUMN_NOTA2));
-                Double media = cursor.getDouble(cursor.getColumnIndexOrThrow(DbHelper.COLUMN_MEDIA));
-                String status = cursor.getString(cursor.getColumnIndexOrThrow(DbHelper.COLUMN_STATUS));
-                Student student = new Student(id, name, nota1, nota2, media, status);
-                dataList.add(student);
-            } while (cursor.moveToNext());
+        SQLiteDatabase db = this.dbHelper.getReadableDatabase();
 
-            cursor.close();
+        Cursor cursor = null;
+        if(db != null){
+            cursor = db.rawQuery(query, null);
         }
 
-        return dataList;
+        return cursor;
     }
 
-    public ArrayList<Student> getAllAproved() {
-        ArrayList<Student> dataList = new ArrayList<>();
+    public Cursor getAllAproved() {
+        String query = "Select * from " + DbHelper.TABLE_NAME + " where status = 'Aprovado'";
 
-        Cursor cursor = database.query(
-                DbHelper.TABLE_NAME,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null
-        );
+        SQLiteDatabase db = this.dbHelper.getReadableDatabase();
 
-        if (cursor != null && cursor.moveToFirst()) {
-            do {
-                long id = cursor.getLong(cursor.getColumnIndexOrThrow(DbHelper.COLUMN_ID));
-                String name = cursor.getString(cursor.getColumnIndexOrThrow(DbHelper.COLUMN_NAME));
-                Double nota1 = cursor.getDouble(cursor.getColumnIndexOrThrow(DbHelper.COLUMN_NOTA1));
-                Double nota2 = cursor.getDouble(cursor.getColumnIndexOrThrow(DbHelper.COLUMN_NOTA2));
-                Double media = cursor.getDouble(cursor.getColumnIndexOrThrow(DbHelper.COLUMN_MEDIA));
-                String status = cursor.getString(cursor.getColumnIndexOrThrow(DbHelper.COLUMN_STATUS));
-                Student student = new Student(id, name, nota1, nota2, media, status);
-                dataList.add(student);
-            } while (cursor.moveToNext());
-
-            cursor.close();
+        Cursor cursor = null;
+        if(db != null){
+            cursor = db.rawQuery(query, null);
         }
 
-        return dataList;
+        return cursor;
     }
     public void updateData(long id, String newName, Double newNota1, Double newNota2, Double newMedia, String newStatus) {
         ContentValues values = new ContentValues();
